@@ -1,2 +1,35 @@
 # Simpleeval-safe_calculator
 Its a safe calculator used Simpleeval and math module for balance and secure code
+
+# simpleeval: A Python library that safely evaluates simple expressions, avoiding the security risks of eval().
+# math: Provides mathematical functions like sin, cos, tan, etc.
+
+from simpleeval import simple_eval
+import math
+
+def safe_calculator():
+    print("===safe calculator===")
+    print("Available operations: +, -, *, /,**,  %, sin(), cos(), tan(), sqrt(), log()")
+    print("Type 'q' to quit.\n")
+
+    allowed_functions= {
+        'sin' : math.sin,
+        'cos' : math.cos,
+        'tan' : math.tan,
+        'sqrt' : math.sqrt,
+        'log' : math.log, 
+    }
+
+    while True:
+        expr = input("Enter expression: ").strip()
+        if expr.lower() == 'q':
+            print("Goodbye!")
+            break
+
+        try:
+            result = simple_eval (expr, functions = allowed_functions)
+            print ("Result: ", result)
+        except Exception as e:
+            print("Error: ",e)
+if __name__=="__main__":
+    safe_calculator()
