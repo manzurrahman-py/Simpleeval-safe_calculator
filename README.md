@@ -8,6 +8,7 @@ def safe_calculator():
     print("===safe calculator===")
     print("Available operations: +, -, *, /,**,  %, sin(), cos(), tan(), sqrt(), log()")
     print("Type 'q' to quit.\n")
+    
     allowed_functions= {
         'sin' : math.sin,
         'cos' : math.cos,
